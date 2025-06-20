@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Clientes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'clientes/style.css' %}">
+</head>
+<body>
+    <h1>Listado de Clientes</h1>
+    <ul>
+        {% for cliente in clientes %}
+            <li>{{ cliente.nombre }} - {{ cliente.email }}</li>
+        {% empty %}
+            <li>No hay clientes registrados.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'landing' %}">Volver al inicio</a>
+</body>
+</html>
